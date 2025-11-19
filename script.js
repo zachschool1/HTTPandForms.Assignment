@@ -16,15 +16,16 @@ let form = document.getElementById("preferences-form");
 form.addEventListener("submit", function(event) {
     //since its a submit button, i dont want it to send data anywhere aside from storage.
     event.preventDefault();
+
     //select the color pickers and save their values in variables
     let bgColor = document.getElementById('background-color');
     let bgValue = bgColor.value;
+    
     //select the foreground color picker and save it's value in a variable
     let fgColor = document.getElementById('foreground-color');
     let fgValue = fgColor.value;
 
     //console.log(bgValue,fgValue); test just to see if i have the values actually working
-
 
     //save the values as keywords in local storage
     localStorage.setItem('localBGColor', bgValue);
@@ -35,7 +36,6 @@ form.addEventListener("submit", function(event) {
 
 //when DOM is loaded, it will do a function to check if there is local storage values and set the stuff as what it's saved as.
 document.addEventListener('DOMContentLoaded', (event) => {
-
     //get the data from local storage
     let localBG = localStorage.getItem('localBGColor');
     let localFG = localStorage.getItem('localFGColor');
