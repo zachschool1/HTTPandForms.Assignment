@@ -30,14 +30,13 @@ form.addEventListener("submit", function(event) {
     //save the values as keywords in local storage
     localStorage.setItem('localBGColor', bgValue);
     localStorage.setItem('localFGColor', fgValue);
-    //this reloads the page, i had to google how to do this and i'm not sure if you want it, but its better than having to manually reload the page
 
+    //this reloads the page, i had to google how to do this and i'm not sure if you want it, but its better than having to manually reload the page, im sure theres a better/more preferred way
     location.reload(); 
 });
 
 //when DOM is loaded, it will do a function to check if there is local storage values and set the stuff as what it's saved as.
 document.addEventListener('DOMContentLoaded', (event) => {
-
     //get the data from local storage
     let localBG = localStorage.getItem('localBGColor');
     let localFG = localStorage.getItem('localFGColor');
@@ -45,7 +44,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     //i saw there was a greeting text that wasnt used, so I put this there, but i could be wrong as to where you intended it. basically, it selects that greeting element and then changes the text to notify what the hex values are that you saved.
     let greeting = document.getElementById('greeting');
     greeting.textContent = `Your saved background color is ${localBG} and your saved text color is ${localFG};`
-
     //if localBG and localFG exist, it will set the background colors and text color to what is specified 
     if (localBG && localFG) {
         document.body.style.backgroundColor = localBG;
